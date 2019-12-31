@@ -8,7 +8,7 @@ from ExcelTemplate import *
 def main():
     borad_num = str(input('请输入板子编号'))
     test_ser = comm_util('COM17', 115200, 8, 1, 'N')
-    tool_ser = comm_util('COM19', 9600, 8, 1, 'N')
+    tool_ser = comm_util('COM7', 9600, 8, 1, 'N')
     board_voltage = []
     board_current = []
     mu_voltage = []
@@ -53,7 +53,11 @@ def main():
     tool_ser.s.close()
     test_ser.s.close()
     mm.close()
-    Excel_Template(board_voltage,mu_voltage,board_current,mu_current)
+    print(board_voltage)
+    print(mu_voltage)
+    print(board_current)
+    print(mu_current)
+    Excel_Template(board_voltage,mu_voltage,board_current,mu_current,borad_num)
 
 
 if __name__ == '__main__':

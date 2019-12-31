@@ -320,7 +320,7 @@ class Excel_Template(object):
         for j, i in zip(range(106, 156), board_current_three):
             ws.cell(j, 5, i)
 
-        for j, i in zip(range(106, 156), mu_current_three):
+        for j, i in zip(range(105, 156), mu_current_three):
             ws.cell(j, 6, i)
 
         prev_msg = str(time.localtime().tm_year) + '_' + str(time.localtime().tm_mon) + '_' + str(
