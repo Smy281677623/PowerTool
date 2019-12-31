@@ -267,21 +267,21 @@ class Excel_Template(object):
             ws.cell(i, 2).border = myborder
 
         # 从这里开始开始数据添加
-        board_voltage_one = self.board_voltage_[0:51]
-        board_voltage_two = self.board_voltage_[51:101]
-        board_voltage_three = self.board_voltage_[101:]
+        board_voltage_one = self.board_voltage_[0:50]
+        board_voltage_two = self.board_voltage_[50:100]
+        board_voltage_three = self.board_voltage_[100:]
 
-        board_current_one = self.board_current_[0:51]
-        board_current_two = self.board_current_[51:101]
-        board_current_three = self.board_current_[101:]
+        board_current_one = self.board_current_[0:50]
+        board_current_two = self.board_current_[50:100]
+        board_current_three = self.board_current_[100:]
 
-        mu_voltage_one = self.mu_voltage_[0:51]
-        mu_voltage_two = self.mu_voltage_[51:101]
-        mu_voltage_three = self.mu_voltage_[101:]
+        mu_voltage_one = self.mu_voltage_[0:50]
+        mu_voltage_two = self.mu_voltage_[50:100]
+        mu_voltage_three = self.mu_voltage_[100:]
 
-        mu_current_one = self.mu_current_[0:51]
-        mu_current_two = self.mu_current_[0:51]
-        mu_current_three = self.mu_current_[0:51]
+        mu_current_one = self.mu_current_[0:50]
+        mu_current_two = self.mu_current_[50:100]
+        mu_current_three = self.mu_current_[100:]
 
         # 第一组数据添加
         for j,i in zip(range(4, 54), board_voltage_one):
