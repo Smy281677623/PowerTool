@@ -25,13 +25,13 @@ def main():
                 command = '0' + hex(int(i * 1000))[2:]
             else:
                 command = hex(int(i * 1000))[2:]
+            # 设置电压
+            test_ser.send_hex_data('10 01 11 00 00 ' + command[0:2] + ' ' + command[2:] + ' 13 0A')
+            sleep(0.05)
+            test_ser.read_bin_data2()
+            sleep(0.05)
             for x in range(1, 11):
                 tool_ser.send_hex_data('3A 00 00 0'+hex(x)[2:]+' 00 0D 0A')
-                sleep(0.05)
-                # 设置电压
-                test_ser.send_hex_data('10 01 11 00 00 ' + command[0:2] + ' ' + command[2:] + ' 13 0A')
-                sleep(0.05)
-                test_ser.read_bin_data2()
                 sleep(0.05)
                 # 读取板子反馈的电压电流值
                 test_ser.send_hex_data('10 01 42 de 13 0a')
