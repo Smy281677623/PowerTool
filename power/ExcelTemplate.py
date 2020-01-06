@@ -48,7 +48,7 @@ class Excel_Template(object):
         ws['B1'].value = '机器编码'
 
         ws.merge_cells('B1:C1')
-        ws['D1'].value = '板卡条码'
+        ws['D1'].value = '板卡条码'+self.board_num_
         ws.merge_cells('D1:F1')
 
         ws['A2'].value = '设置电压'
