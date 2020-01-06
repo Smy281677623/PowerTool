@@ -5,7 +5,7 @@ from ExcelTemplate import *
 
 
 def main():
-    borad_num = str(input('请输入板子编号'))
+    borad_num = str(input('请输入板卡条码'))
     test_ser = comm_util('COM17', 115200, 8, 1, 'N')
     tool_ser = comm_util('COM7', 9600, 8, 1, 'N')
     board_voltage = []
