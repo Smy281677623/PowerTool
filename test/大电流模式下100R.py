@@ -56,6 +56,11 @@ def main():
     tool_ser.s.close()
     test_ser.s.close()
     mm.close()
+    print(board_voltage)
+    print(mu_voltage)
+    print(board_current)
+    print(mu_current)
+    Excel_TemplateTwo(board_voltage, mu_voltage, board_current, mu_current, borad_num)
 
 
 if __name__ == '__main__':
