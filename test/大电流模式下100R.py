@@ -1,11 +1,17 @@
 # -*- coding:utf-8 -*-
 from MultimeterUtil import *
 from ComSerialUtil import *
+from ExcelTemplateTwo import *
 
 
 def main():
+    borad_num = str(input('请输入板卡条码'))
     test_ser = comm_util('COM17', 115200, 8, 1, 'N')
     tool_ser = comm_util('COM19', 9600, 8, 1, 'N')
+    board_voltage = []
+    board_current = []
+    mu_voltage = []
+    mu_current = []
     mm = Multimeter(('192.168.2.20', 5025))
     for i in range(0, 5):
         test_ser.read_bin_data()
@@ -36,12 +42,16 @@ def main():
                 temp_data = test_ser.s.read(28).hex()
                 # print(temp_data)
                 print(str(eval('0x'+temp_data[18:22]))+'\t', end="")
+                board_voltage.append(str(eval('0x' + temp_data[18:22])))
                 print(str(mm.GetDcVolt() * -1000) + '\t', end="")
+                mu_voltage.append(str(mm.GetDcVolt() * -1000))
                 sleep(0.05)
                 # 万用表读取的电压电流值
                 print(str(eval('0x' + temp_data[10:14]) / 10) + '\t', end="")
+                board_current.append(str(eval('0x' + temp_data[10:14]) / 10))
                 sleep(0.05)
                 print(str(mm.GetDcCurrent()*1000)+'')
+                mu_current.append(str(mm.GetDcCurrent() * 1000))
             tool_ser.send_hex_data('3D 00 00 FF 00 0D 0A')
     tool_ser.s.close()
     test_ser.s.close()
