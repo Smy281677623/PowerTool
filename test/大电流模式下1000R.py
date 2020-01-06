@@ -1,5 +1,4 @@
 # -*- coding:utf-8 -*-
-# -*- coding:utf-8 -*-
 from MultimeterUtil import *
 from ComSerialUtil import *
 from ExcelTemplate import *
